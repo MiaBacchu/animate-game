@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 300px;
+  height: 500px;
+  position: relative;
+  background: yellow;
+  margin: 15px auto;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+  top: 400px;
+  left: 125px;
+  border-radius: 25px;
+}
+#virus1 {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: black;
+  border-radius: 10px;
+}
+#virus2 {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: green;
+  left: 140px;
+  border-radius: 10px;
+}
+#virus3 {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: blue;
+  right: 0;
+  border-radius: 10px;
+}
+</style>
+<body>
+
+<div style="text-align:center">
+    <button onclick="virusStart()">Start Game</button>
+    <button onclick="stopVirus()">Stop Game</button>
+    <p id="point">Your Score: 0</p>
+</div> 
+
+<div id ="container">
+  <div id ="virus1"></div>
+  <div id ="virus2"></div>
+  <div id ="virus3"></div>
+  <div id ="animate"></div>
+</div>
+<div style="text-align:center;">
+<button style="font-size: 25px;" onclick="moveLeft()">Move Left</button>
+<button style="font-size: 25px;" onclick="moveRight()">Move Right</button>
+</div>
+<script src="/new.js">
+</script>
+
+</body>
+</html>
