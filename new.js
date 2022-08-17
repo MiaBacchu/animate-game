@@ -1,5 +1,6 @@
 let pos = 125;
 let point = 0;
+let second = 50;
 let virus1pos = 0;
 let virus2pos = 0;
 let virus3pos = 0;
@@ -13,9 +14,11 @@ let virus1CallStop = null;
 let virus2CallStop = null;
 let virus3CallStop = null;
 let collision  = null;
+let timeStart  = null;
 
 // move the ball right
 let pointP = document.getElementById('point');
+let time = document.getElementById('time');
 function moveRight() {
     const elem = document.getElementById("animate");
     clearInterval(rightStop);
@@ -48,6 +51,9 @@ function moveLeft() {
   }
   // start the virus
   function virusStart(){
+    timeStart = setInterval(function(){
+      second = second-1;
+    },1000);
     virus1CallStop = setInterval(virus1,2500);
     virus2();
     virus2CallStop = setInterval(virus2,4000);
@@ -70,6 +76,7 @@ function moveLeft() {
     clearInterval(virus2CallStop);
     clearInterval(virus3CallStop);
     clearInterval(collision);
+    clearInterval(timeStart);
   }
 // virus 1
   function virus1(){
@@ -125,10 +132,10 @@ function virus3(){
 
 //check collision func
 function checkCollison(){
+  time.innerHTML=second;
   let sum1 = pos+virus1pos;
   let sum2 = pos+virus2pos;
   let sum3 = pos+virus3pos;
-  console.log(pos);
   if (sum1>=390 && sum1<=430 && pos<=20) {
     point += 5;
     pointP.innerHTML = `Your Score: ${point}`;
